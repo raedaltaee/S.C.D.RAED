@@ -1670,12 +1670,12 @@
                     showMessage('فشل تسجيل الخروج.', 'error');
                 }
             } else {
-                // Try to sign in (anonymously or with custom token if available)
+                // Try to sign in (anonymously or with signInWithEmailAndPassword if available)
                 if (initialAuthToken) {
                     try {
-                        await signInWithCustomToken(auth, initialAuthToken);
+                        await signInWithEmailAndPassword(auth, initialAuthToken);
                     } catch (error) {
-                        console.error("Error signing in with custom token:", error);
+                        console.error("Error signing in with signInWithEmailAndPassword:", error);
                         try {
                             await signInAnonymously(auth);
                         } catch (anonError) {
